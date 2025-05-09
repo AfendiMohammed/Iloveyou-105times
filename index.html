@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You 100 Times</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffebee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #d32f2f;
+            text-align: center;
+        }
+        .love-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 800px;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .love-message {
+            background-color: #ffcdd2;
+            color: #c62828;
+            padding: 8px 15px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>100 Times "I Love You"</h1>
+    <div class="love-container" id="loveContainer"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('loveContainer');
+            const colors = ['#ffcdd2', '#f8bbd0', '#e1bee7', '#d1c4e9', '#c5cae9', '#bbdefb', '#b3e5fc', '#b2ebf2', '#b2dfdb', '#c8e6c9'];
+            
+            for (let i = 0; i < 105; i++) {
+                const loveMessage = document.createElement('div');
+                loveMessage.className = 'love-message';
+                loveMessage.textContent = `I Love You (${i + 1})`;
+                
+                // Randomly select a color from the array
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                loveMessage.style.backgroundColor = randomColor;
+                
+                // Add slight delay for animation effect
+                loveMessage.style.animationDelay = `${i * 0.05}s`;
+                
+                container.appendChild(loveMessage);
+            }
+        });
+    </script>
+</body>
+</html>
